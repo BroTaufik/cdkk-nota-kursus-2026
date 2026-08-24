@@ -717,7 +717,30 @@ body.dark .sh .tag{
     linear-gradient(180deg,#BFDDF6 0%,#8FBEE6 52%,#6C9FCE 100%);
   color:#0B2338;border-color:rgba(255,255,255,.62);
 }
+
+/* ===== Amaran pusing telefon (portrait) ===== */
+.rotate-overlay{position:fixed;inset:0;z-index:99999;background:var(--navyd);display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 32px}
+@media (orientation:portrait) and (max-width:900px){
+  .rotate-overlay{display:flex}
+  html.rotate-dismissed .rotate-overlay{display:none}
+}
+.rotate-icon{width:58px;height:58px;margin-bottom:26px;color:var(--goldl);animation:rotateHint 1.6s ease-in-out infinite}
+@keyframes rotateHint{0%,42%{transform:rotate(0deg)}58%,100%{transform:rotate(90deg)}}
+.rotate-overlay h2{font-family:Cambria,Georgia,serif;font-size:23px;color:#fff;font-weight:700;margin-bottom:10px}
+.rotate-overlay p{font-size:15px;color:#C6D6E6;line-height:1.55;max-width:320px;margin-bottom:28px}
+.rotate-skip{background:transparent;border:1.5px solid #3A5578;color:#C6D6E6;font-family:inherit;font-size:13.5px;padding:10px 20px;border-radius:8px;cursor:pointer}
+.rotate-skip:hover{border-color:var(--goldl);color:#fff}
 </style></head><body>
+
+<div class="rotate-overlay" id="rotateOverlay">
+  <svg class="rotate-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M11 18.2h2"/>
+  </svg>
+  <h2>Pusingkan Telefon Anda</h2>
+  <p>Nota kursus ini direka untuk paparan landskap (mendatar) supaya kandungan setiap slaid jelas dibaca — sama macam persembahan di skrin projektor.</p>
+  <button class="rotate-skip" id="rotateSkip" type="button">Teruskan dalam mod ini</button>
+</div>
+<script>document.getElementById('rotateSkip').addEventListener('click',function(){document.documentElement.classList.add('rotate-dismissed');});</script>
 
 <div id="wrap"><div id="stage">
   
